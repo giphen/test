@@ -1,17 +1,17 @@
 n = int(input("введите n: "))
 m = int(input("введите m: "))
 
-one_List = m * [int(i) for i in range(1, n + 1)]
-two_List = [' ']
-three_List = []
-cnt = 0
-while two_List[-1] != 1:
-    two_List.clear()
-    for j in range(cnt, m + cnt):
-        two_List.append(one_List[j])
-        cnt += 1 
-    two_List_copy = two_List.copy()
-    three_List.append(two_List_copy)
-    cnt -= 1
-for k in range(len(three_List)):
-    print(three_List[k][0], end='')
+first_List = m * [int(i) for i in range(1, n + 1)]
+second_List = [' ']
+third_List = []
+iter = 0
+while second_List[-1] != 1:
+    second_List.clear()
+    for j in range(iter, m + iter):
+        second_List.append(first_List[j])
+        iter += 1 
+    second_List_copy = second_List.copy()
+    third_List.append(second_List_copy)
+    iter -= 1
+for k in range(len(third_List)):
+    print(third_List[k][0], end='')
