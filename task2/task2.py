@@ -6,6 +6,22 @@ def read_circle(circle_file):
         radius = float(file.readline())
     return center, radius
 
+def read_dots(dot_file):
+    with open(dot_file, 'r') as file:
+        dots = [tuple(map(float, line.split())) for line in file]
+    return dots
+
+def dot_pos(center, radius, dot):
+    circle_distance = (dot[0] - center[0]) ** 2 + (dot[1] - center[1]) ** 2
+    circle_radius = radius * radius
+
+    if circle_distance == circle_radius:
+        return 0
+    if circle_distance < circle_radius:
+        return 1
+    else:
+        return 2
+
 def main():
 
     circle_file = sys.argv[1]
@@ -27,22 +43,6 @@ def main():
         print(f"{position} - Точка {notes[position]}")
 
 
-def read_dots(dot_file):
-    with open(dot_file, 'r') as file:
-        dots = [tuple(map(float, line.split())) for line in file]
-    return dots
-
-
-def dot_pos(center, radius, dot):
-    circle_distance = (dot[0] - center[0]) ** 2 + (dot[1] - center[1]) ** 2
-    circle_radius = radius * radius
-
-    if circle_distance == circle_radius:
-        return 0
-    if circle_distance < circle_radius:
-        return 1
-    else:
-        return 2
     
 main()
 
